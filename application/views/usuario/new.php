@@ -1,7 +1,5 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<!DOCTYPE html>
-<html lang="en">
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <head>
 	<meta charset="utf-8">
 	<title>Warriors</title>	
@@ -14,7 +12,7 @@
 				
 				<?php 
 				$atributos = array('id' => 'guardar','name' =>'Guardar');
-				echo form_open_multipart(null,$atributos);
+				echo form_open(null,$atributos);
 				?>
 				<?/*php echo validation_errors(); */?>
 				<div class="row">

@@ -19,13 +19,14 @@ class Usuario extends CI_Controller
     {
         if($this->input->post())
         {
-            if($this->form_validation->run("usuario/nuevo"))
+            if($this->form_validation->run("usuario/nuevo") == false)
             {
+              
                 $datos=array
                 (
-                    'nombre'=>$this->input->post("nom",true),
-                    'usuario'=>$this->input->post("usua",true),
-                    'contrasena'=>$this->input->post("pass",true)
+                    'nombre' => $this->input->post("nom",true),
+                    'usuario' => $this->input->post("usua",true),
+                    'contrasena' => sha1($this->input->post("pass",true))
                 );
                 $guardar=$this->Usuarios_model->insertar_usuario($datos);
                 if($guardar)
@@ -40,31 +41,32 @@ class Usuario extends CI_Controller
                 }
             }
         }
-    $this->layout->view('new');
+
+        $this->layout->view('new');
     }
 
     public function edit($id=null)
     {
         if($this->input->post())
         {
-            if($this->form_validation->run("usuario/nuevo"))
+            if($this->form_validation->run("usuario/nuevo") == false)
             { 
                 $datos=array
                 (
-                    'nombre'=>$this->input->post("nom",true),
-                    'usuario'=>$this->input->post("usua",true),
-                    'contrasena'=>$this->input->post('pas',true)   
+                    'nombre'=> $this->input->post("nom",true),
+                    'usuario'=> $this->input->post("usua",true),
+                    'contrasena'=> sha1($this->input->post('pas',true))   
                     );
                 $guardar=$this->Usuarios_model->modificar_usuario($datos,$id);
                 if($guardar)
                 {
                     $this->session->set_flashdata('ControllerMessage', 'Se ha editado el ususario exitosamente');
-                    redirect(base_url().'usuario/edit'.$id, 301);
+                    redirect(base_url().'usuario/index', 301);
                 }
                 else
                 {
                     $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
-                    redirect(base_url().'usuario/edit'.$id,  301);
+                    redirect(base_url().'usuario/edit/'.$id,  301);
                 }
             }
         }
@@ -75,18 +77,19 @@ class Usuario extends CI_Controller
                 } 
                 $this->layout->view('edit',compact("datos"));
     }
+
     public function delete($id=null)
     {
         $guardar=$this->Usuarios_model->eliminar($id);
             if($guardar)
             {
                 $this->session->set_flashdata('ControllerMessage', 'Se ha eliminado el ususario exitosamente');
-                redirect(base_url().'usuario', 301);
+                redirect(base_url().'usuario/index', 301);
             }
             else
             {
                 $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
-                redirect(base_url().'usuario',  301);
+                redirect(base_url().'usuario/index',  301);
             }
     }
 }

@@ -52,8 +52,8 @@
 												<td><?php echo $dato->usuario?></td>
 												<td><?php echo $dato->contrasena?></td>
 												<td>
-													<a href="<?php echo base_url()?>usuario/edit/<?php echo $dato->id?>">Editar</a> |
-													<a href="javascript:void(0);" onclick="eliminar(<?php echo base_url()?>usuario/delate/<?php echo $dato->id?>)">Eliminar</a>
+													<a href="<?php echo base_url() ?>usuario/edit/<?php echo $dato->id ?>">Editar</a> |
+													<a href="<?php echo base_url() ?>usuario/delete/<?php echo $dato->id ?>">Eliminar</a>
 												</td>
 											</tr>			
 										    <?php 

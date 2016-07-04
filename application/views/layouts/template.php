@@ -56,9 +56,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="top-nav clearfix">
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
-        <li>
-            <input type="text" class="form-control search" placeholder=" Search">
-        </li>
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -81,87 +78,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 </header>
 <!--header end-->
-<!--sidebar start-->
-<aside>
-    <div id="sidebar" class="nav-collapse hide-left-bar">
-        <!-- sidebar menu start-->
-        <div class="leftside-navigation">
-            <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                    <a class="active" href="index.html">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-laptop"></i>
-                        <span>Layouts</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>UI Elements</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="fontawesome.html">
-                        <i class="fa fa-bullhorn"></i>
-                        <span>Fontawesome </span>
-                    </a>
-                </li>
-            </ul> 
-        </div>
-        <!-- sidebar menu end-->
-    </div>
-</aside>
-<!--sidebar end-->
+
 <!--main content start-->
 <section id="main-content" class="merge-left">
 <section class="wrapper">
+
 <?php echo $content_for_layout; ?>
 
 </section>
 </section>
 <!--main content end-->
-<!--right sidebar start-->
-<div class="right-sidebar">
-<div class="search-row">
-    <input type="text" placeholder="Search" class="form-control">
-</div>
-<div class="right-stat-bar">
-<ul class="right-side-accordion">
-<li class="widget-collapsible">
-    <a href="#" class="head widget-head red-bg active clearfix">
-        <span class="pull-left">work progress (5)</span>
-        <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
-    </a>    
-</li>
-<li class="widget-collapsible">
-    <a href="#" class="head widget-head terques-bg active clearfix">
-        <span class="pull-left">contact online (5)</span>
-        <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
-    </a>
-</li>
-<li class="widget-collapsible">
-    <a href="#" class="head widget-head purple-bg active">
-        <span class="pull-left"> recent activity (3)</span>
-        <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
-    </a>    
-</li>
-<li class="widget-collapsible">
-    <a href="#" class="head widget-head yellow-bg active">
-        <span class="pull-left"> shipment status</span>
-        <span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
-    </a>    
-</li>
-</ul>
 
-</div>
-
-</div>
-<!--right sidebar end-->
 </section>
 <!-- Placed js at the end of the document so the pages load faster -->
 <!--Core js-->
