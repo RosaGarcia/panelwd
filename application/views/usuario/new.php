@@ -10,10 +10,8 @@
 	<div class="panel-body">
 		<div class="top-stats-panel">
 			<body>
-				<h1>Nuevo Usuario</h1>
-				<p>
-				    <a href="<?php echo base_url()?>usuario/index" class="btn btn-round btn-primary">Regresar</a>
-				</p>
+				<h1><a href="<?php echo base_url()?>usuario/index">Dashboard</a>/Nuevo Usuario</h1>
+				
 				<?php 
 				$atributos = array('id' => 'guardar','name' =>'Guardar');
 				echo form_open_multipart(null,$atributos);

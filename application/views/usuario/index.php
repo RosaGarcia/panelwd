@@ -10,10 +10,7 @@
 	<div class="panel-body">
 		<div class="top-stats-panel">
 			<body>
-				<h1>Usuario</h1>
-				<p>
-				    <a href="<?php echo base_url()?>usuario/nuevo" class="btn btn-round btn-primary">Nuevo usuario</a>
-				</p>
+				<h1>Dashboard</h1>				
 				<?php 
 				if ( $this->session->flashdata('ControllerMessage') != '' ) 
 				    {
