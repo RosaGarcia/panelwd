@@ -68,12 +68,12 @@ class Usuario extends CI_Controller
                 }
             }
         }
-        $datos=$this->Usuarios_model->getUsuarioId($id);
-        if(sizeof($datos)==0)
-        {
-            show_404();
-        } 
-        $this->layout->view('edit',compact("datos"));
+                $datos=$this->Usuarios_model->getUsuarioId($id);
+                if(sizeof($datos)==0)
+                {
+                    show_404();
+                } 
+                $this->layout->view('edit',compact("datos"));
     }
     public function delete($id=null)
     {
