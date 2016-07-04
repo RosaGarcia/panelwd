@@ -38,7 +38,7 @@
                             <p>Contraseña</p>
                             </div>
                             <div class="col-sm-5 col-md-5">
-                            <input class="form-control" type="password" name="pass" value="<?php echo $datos->contrasena ?>"> 
+                            <input class="form-control" type="password" name="pass" value=""> 
 						    </div><br /><br /><br/>
 						    <div class="col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-3">
 						    <input type="hidden" name="id" value="">
