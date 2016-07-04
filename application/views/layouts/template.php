@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url()?>public/bs3/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>public/js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>public/css/bootstrap-reset.css" rel="stylesheet">
-    <link href="public/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>public/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="<?php echo base_url()?>public/js/jvector-map/jquery-jvectormap-1.2.2.css" rel="stylesheet">
     <link href="<?php echo base_url()?>public/css/clndr.css" rel="stylesheet">
     <!--clock css-->
@@ -27,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url()?>public/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url()?>public/css/style-responsive.css" rel="stylesheet"/>
+
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]>
     <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -44,99 +45,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="brand">
 
     <a href="index.html" class="logo">
-        <img src="<?php echo base_url()?>public/images/warriors.png" width="195px" alt="">
+        <img src="<?php echo base_url()?>public/images/warriors.png" width="185px" alt="">
     </a>
-    <div class="sidebar-toggle-box">
+    <!--<div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
-    </div>
+    </div>-->
 </div>
 <!--logo end-->
 
-<div class="nav notify-row" id="top_menu">
-    <!--  notification start -->
-    <ul class="nav top-menu">
-        <!-- settings start -->
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="fa fa-tasks"></i>
-                <span class="badge bg-success">1</span>
-            </a>
-            <ul class="dropdown-menu extended tasks-bar">
-                <li>
-                    <p class="">You have 1 pending tasks</p>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="task-info clearfix">
-                            <div class="desc pull-left">
-                                <h5>Target Sell</h5>
-                                <p>25% , Deadline  12 June’13</p>
-                            </div>
-                                    <span class="notification-pie-chart pull-right" data-percent="45">
-                            <span class="percent"></span>
-                            </span>
-                        </div>
-                    </a>
-                </li>
-                <li class="external">
-                    <a href="#">See All Tasks</a>
-                </li>
-            </ul>
-        </li>
-        <!-- settings end -->
-        <!-- inbox dropdown start-->
-        <li id="header_inbox_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <i class="fa fa-envelope-o"></i>
-                <span class="badge bg-important">1</span>
-            </a>
-            <ul class="dropdown-menu extended inbox">
-                <li>
-                    <p class="red">You have 1 Mails</p>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="photo"><img alt="avatar" src="images/avatar-mini.jpg"></span>
-                                <span class="subject">
-                                <span class="from">Jonathan Smith</span>
-                                <span class="time">Just now</span>
-                                </span>
-                                <span class="message">
-                                    Hello, this is an example msg.
-                                </span>
-                    </a>
-                </li>                
-                <li>
-                    <a href="#">See all messages</a>
-                </li>
-            </ul>
-        </li>
-        <!-- inbox dropdown end -->
-        <!-- notification dropdown start-->
-        <li id="header_notification_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-
-                <i class="fa fa-bell-o"></i>
-                <span class="badge bg-warning">3</span>
-            </a>
-            <ul class="dropdown-menu extended notification">
-                <li>
-                    <p>Notifications</p>
-                </li>
-                <li>
-                    <div class="alert alert-info clearfix">
-                        <span class="alert-icon"><i class="fa fa-bolt"></i></span>
-                        <div class="noti-info">
-                            <a href="#"> Server #1 overloaded.</a>
-                        </div>
-                    </div>
-                </li>          
-            </ul>
-        </li>
-        <!-- notification dropdown end -->
-    </ul>
-    <!--  notification end -->
-</div>
 <div class="top-nav clearfix">
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
@@ -150,18 +66,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <span class="username">Warriors</span>
                 <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+            <ul class="dropdown-menu extended logout">                
                 <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
-        <li>
+        <!--<li>
             <div class="toggle-right-box">
                 <div class="fa fa-bars"></div>
             </div>
-        </li>
+        </li>-->
     </ul>
     <!--search & user info end-->
 </div>
@@ -169,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--header end-->
 <!--sidebar start-->
 <aside>
-    <div id="sidebar" class="nav-collapse">
+    <div id="sidebar" class="nav-collapse hide-left-bar">
         <!-- sidebar menu start-->
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
@@ -204,37 +118,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </aside>
 <!--sidebar end-->
 <!--main content start-->
-<section id="main-content">
+<section id="main-content" class="merge-left">
 <section class="wrapper">
 <?php echo $content_for_layout; ?>
-<!--mini statistics start-->
-<div class="row">
-    <div class="col-md-3">
-        <section class="panel">
-            <div class="panel-body">
-                <div class="top-stats-panel">
-                    <div class="gauge-canvas">
-                        <h4 class="widget-h">Monthly Expense</h4>
-                        <canvas width=160 height=100 id="gauge"></canvas>
-                    </div>
-                    <ul class="gauge-meta clearfix">
-                        <li id="gauge-textfield" class="pull-left gauge-value"></li>
-                        <li class="pull-right gauge-title">Safe</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </div>    
-    
-    
-</div>
-<!--mini statistics end-->
 
-
-
-
-</div>
-</div>
 </section>
 </section>
 <!--main content end-->
@@ -278,6 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 <!-- Placed js at the end of the document so the pages load faster -->
 <!--Core js-->
+<script src="<?php echo base_url()?>public/js/funciones.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>public/js/jquery.js"></script>
 <script src="<?php echo base_url()?>public/js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
 <script src="<?php echo base_url()?>public/bs3/js/bootstrap.min.js"></script>
