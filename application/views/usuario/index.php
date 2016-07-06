@@ -1,11 +1,5 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Warriors</title>	
-</head>
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
+
 <section class="panel">
 	<div class="panel-body">
 		<div class="top-stats-panel">
@@ -23,12 +17,7 @@
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<section class="panel">
 						    <header class="panel-heading">
-						     	Info equipos			     	
-						        <span class="tools pull-right">
-						        	<a href="javascript:;"" class="fa fa-chevron-down"></a>
-						        	<a href="javascript:;"" class="fa fa-cog"></a>
-						        	<a href="javascript:;"" class="fa fa-times"></a>
-						        </span>	
+						     	<h4>Información Usuarios</h4>	
 						    </header>
 						    <div class="panel-body">
 							    <table class="table table-hover general-table">
@@ -52,8 +41,8 @@
 												<td><?php echo $dato->usuario?></td>
 												<td><?php echo $dato->contrasena?></td>
 												<td>
-													<a href="<?php echo base_url() ?>usuario/edit/<?php echo $dato->id ?>">Editar</a> |
-													<a href="<?php echo base_url() ?>usuario/delete/<?php echo $dato->id ?>">Eliminar</a>
+													<a class="btn btn-round btn-info" href="<?php echo base_url() ?>usuario/edit/<?php echo $dato->id ?>">Editar</a> 
+													<a class="btn btn-round btn-danger" href="<?php echo base_url() ?>usuario/delete/<?php echo $dato->id ?>">Eliminar</a>
 												</td>
 											</tr>			
 										    <?php 
