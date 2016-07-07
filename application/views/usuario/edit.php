@@ -1,11 +1,5 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Warriors</title>	
-</head>
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
+
 <section class="panel">
 	<div class="panel-body">
 		<div class="top-stats-panel">
@@ -39,7 +33,7 @@
 						    </div><br /><br /><br/>
 						    <div class="col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-3">
 						    <input type="hidden" name="id" value="">
-						    <input class="btn btn-round btn-primary" type="submit" value="submit" title="Guardar">
+						    <input class="btn btn-round btn-primary" type="submit" value="Guardar" title="Guardar">
 						    </div>
 						</section>
 					</div>
