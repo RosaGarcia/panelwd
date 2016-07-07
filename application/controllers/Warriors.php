@@ -4,16 +4,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Warriors extends CI_Controller
  {
     public  function  __construct() 
-        { 
-            parent:: __construct(); 
-            $this->layout->setLayout('template');
-        } 
+    { 
+        parent:: __construct(); 
+        $this->layout->setLayout('template');
+    } 
 
 	public function index()
 	{	
-		$datos=$this->Equipos_model->getEquipos();
-		$this->layout->view('index',compact("datos"));
+        if($this->session->userdata('logged_in'))
+        {
+                //nombre de usuario con data['username']
+                 //$session_data = $this->session->userdata('logged_in');
+                 //$data['username'] = $session_data['usuario'];
+
+    	   $datos=$this->Equipos_model->getEquipos();
+    	   $this->layout->view('index',compact("datos"));
+        }
+        else
+        {
+            $this->load->helper(array('form'));
+            $this->load->view('login/login_view');
+
+        }
+
 	}
+
 
     public function nuevo()
     {
@@ -108,7 +123,12 @@ class Warriors extends CI_Controller
         }
     }
 
-
+    public function logout()
+    {
+       $this->session->unset_userdata('logged_in');
+       session_destroy();
+       redirect('Login', 'refresh');
+    }        		
     
 }
 
