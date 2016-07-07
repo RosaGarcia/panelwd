@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url()?>public/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="<?php echo base_url()?>public/js/jvector-map/jquery-jvectormap-1.2.2.css" rel="stylesheet">
     <link href="<?php echo base_url()?>public/css/clndr.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>public/css/main.css" rel="stylesheet">
     <!--clock css-->
     <link href="<?php echo base_url()?>public/js/css3clock/css/style.css" rel="stylesheet">
     <!--Morris Chart CSS -->
@@ -131,6 +132,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url()?>public/js/jquery.customSelect.min.js" ></script>
 <!--common script init for all pages-->
 <script src="<?php echo base_url()?>public/js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+
+
+
 <!--script for this page-->
 </body>
 </html>
