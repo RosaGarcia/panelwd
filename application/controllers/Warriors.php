@@ -10,15 +10,15 @@ class Warriors extends CI_Controller
         } 
 
 	public function index()
-		{	
-			$datos=$this->Equipos_model->getEquipos();
-			$this->layout->view('index',compact("datos"));
-		}
+	{	
+		$datos=$this->Equipos_model->getEquipos();
+		$this->layout->view('index',compact("datos"));
+	}
 
-        public function nuevo()
-        {
+    public function nuevo()
+    {
 
-            if($this->input->post())
+        if($this->input->post())
             {
                 if($this->form_validation->run("warriors/nuevo") == false)
                 {
@@ -43,13 +43,14 @@ class Warriors extends CI_Controller
                 }
             }
 
-            $this->layout->view('new');
-        }
+        $this->layout->view('new');
+    }
 
-    public function show()
-        {
-        	$this->layout->view('show');
-        }
+    public function show($id=null)
+    {
+        $datos = $this->Equipos_model->showEquipo($id);
+        $this->layout->view('show',compact("datos"));
+    }
 
     public function edit($id=null)
     {
@@ -84,20 +85,30 @@ class Warriors extends CI_Controller
                 $this->layout->view('edit',compact("datos"));
     }
 
+    public function iframe($id=null)
+    {
+        $datos = $this->Equipos_model->iframeEquipo($id);
+        $pass =base64_decode($datos->contrasena);
+        $this->layout->view('iframe',compact("datos","pass"));
+    }
+
+
     public function delete($id=null)
     {
         $guardar=$this->Equipos_model->eliminar($id);
-            if($guardar)
-            {
-                $this->session->set_flashdata('ControllerMessage', 'Se ha eliminado el ususario exitosamente');
-                redirect(base_url().'usuario/index', 301);
-            }
-            else
-            {
-                $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
-                redirect(base_url().'usuario/index',  301);
-            }
-    }        		
+        if($guardar)
+        {
+            $this->session->set_flashdata('ControllerMessage', 'Se ha eliminado el ususario exitosamente');
+            redirect(base_url().'usuario/index', 301);
+        }
+        else
+        {
+            $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
+            redirect(base_url().'usuario/index',  301);
+        }
+    }
+
+
     
 }
 
