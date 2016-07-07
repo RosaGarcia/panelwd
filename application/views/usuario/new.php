@@ -1,9 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<head>
-	<meta charset="utf-8">
-	<title>Warriors</title>	
-</head>
 <section class="panel">
 	<div class="panel-body">
 		<div class="top-stats-panel">
@@ -37,7 +33,7 @@
                             <input class="form-control" type="password" name="pass" value="<?php echo set_value("pass") ?>"> 
 						    </div><br /><br /><br/>
 						    <div class="col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-3">
-						    <input class="btn btn-round btn-primary" type="submit" name="Guardar" value="submit" title="Guardar" id="guardar">
+						    <input class="btn btn-round btn-primary" type="submit"" value="Guardar" title="Guardar">
 						</section>
 					</div>
 				</div>
