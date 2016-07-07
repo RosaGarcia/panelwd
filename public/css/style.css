@@ -14,7 +14,7 @@ body {
     font-family:'Open Sans',sans-serif;
     padding:0px !important;
     margin:0px !important;
-    font-size:13px;
+    font-size:14px;
     text-rendering:optimizeLegibility;
 }
 ul, .list-unstyled {
@@ -1008,7 +1008,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 .chart {
     display:inline-block;
     text-align:center;
-    width:100%;
+    width:10%;
 }
 .chart .heading {
     text-align:left;
@@ -4558,7 +4558,7 @@ div.tagsinput span.tag {
     text-align:center;
 }
 .gauge-canvas {
-    text-align:center;
+    /*text-align:center;*/
 }
 .gauge-value {
     color:#fa8564;
@@ -4606,8 +4606,13 @@ div.tagsinput span.tag {
 }
 .percent {
     display:inline-block;
-    line-height:80px;
+    line-height:100px;
     z-index:2;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.percents {
+    margin-right: 50px;
 }
 .pc-epie-chart {
     position:relative;
