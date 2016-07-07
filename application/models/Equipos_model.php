@@ -29,7 +29,6 @@ class Equipos_model extends CI_Model
         ->select("dyndns,usuario,contrasena")
         ->from("equipos")
         ->where($where)
-        ->order_by("id","desc")
         ->get();
         return $query->row();
     }
@@ -39,6 +38,28 @@ class Equipos_model extends CI_Model
         $this->db->where('id',$id);
         $this->db->update('equipos',$datos);
         return true;
+    }
+
+    public function showEquipo($id)
+    {
+        $where=array("id"=>$id);
+        $query=$this->db
+        ->select("dyndns")
+        ->from("equipos")
+        ->where($where)
+        ->get();
+        return $query->row();
+    }
+
+    public function iframeEquipo($id)
+    {
+        $where=array("id"=>$id);
+        $query=$this->db
+        ->select("dyndns,usuario,contrasena")
+        ->from("equipos")
+        ->where($where)
+        ->get();
+        return $query->row();
     }
 
     public function eliminar($id=null)
