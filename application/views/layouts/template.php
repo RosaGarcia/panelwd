@@ -60,11 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="images/avatar1_small.jpg">
-                <span class="username">Warriors</span>
+                <span class="username">warriors</span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">                
-                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                <li><a href="warriors/logout"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
