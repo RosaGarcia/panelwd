@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--logo start-->
 <div class="brand">
 
-    <a href="index.html" class="logo">
+    <a href="<?php echo base_url()?>warriors/index" class="logo">
         <img src="<?php echo base_url()?>public/images/warriors.png" width="185px" alt="">
     </a>
     <!--<div class="sidebar-toggle-box">
@@ -60,12 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="images/avatar1_small.jpg">
-                <span class="username">warriors</span>
+                <span class="username">Salir</span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">                
-                <li><a href="warriors/logout"><i class="fa fa-key"></i> Log Out</a></li>
+                <li><a href="<?php echo base_url() ?>warriors/logout"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->

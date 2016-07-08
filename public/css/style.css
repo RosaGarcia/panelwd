@@ -36,6 +36,10 @@ a,a:hover,a:focus {
     background:#1FB5AD;
     color:#fff;
 }
+.red
+{
+    color: red;
+}
 #container {
     width:100%;
     height:100%;
