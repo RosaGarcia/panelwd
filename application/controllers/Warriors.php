@@ -26,100 +26,140 @@ class Warriors extends CI_Controller
             $this->load->view('login/login_view');
 
         }
-
 	}
 
 
     public function nuevo()
     {
+        if($this->session->userdata('logged_in'))
+        {
 
-        if($this->input->post())
-            {
-                if($this->form_validation->run("warriors/nuevo") == false)
+            if($this->input->post())
                 {
-                  
+                    if($this->form_validation->run("warriors/nuevo"))
+                    {
+                      
+                        $datos=array
+                        (
+                            'dyndns' => $this->input->post("dyn",true),
+                            'usuario' => $this->input->post("usua",true),
+                            'contrasena' => base64_encode($this->input->post("pass",true))
+                        );
+                        $guardar=$this->Equipos_model->insertarEquipos($datos);
+                        if($guardar)
+                        {
+                            $this->session->set_flashdata('ControllerMessage', 'Se ha agragado el ususario exitosamente');
+                            redirect(base_url().'warriors/index', 301);
+                        }
+                        else
+                        {
+                            $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
+                            redirect(base_url().'warriors/new',  301);
+                        }
+                    }
+                }
+
+            $this->layout->view('new');
+        }
+        else
+        {
+            $this->load->helper(array('form'));
+            $this->load->view('login/login_view');
+
+        }
+    }
+
+    public function show($id=null)
+    {
+        if($this->session->userdata('logged_in'))
+        {
+            $datos = $this->Equipos_model->showEquipo($id);
+            $this->layout->view('show',compact("datos"));
+        }
+        else
+        {
+            $this->load->helper(array('form'));
+            $this->load->view('login/login_view');
+        }
+    }
+
+    public function edit($id=null)
+    {
+        if($this->session->userdata('logged_in'))
+        {
+            if($this->input->post())
+            {
+                if($this->form_validation->run("warriors/nuevo"))
+                { 
                     $datos=array
                     (
-                        'dyndns' => $this->input->post("dyn",true),
-                        'usuario' => $this->input->post("usua",true),
-                        'contrasena' => base64_encode($this->input->post("pass",true))
-                    );
-                    $guardar=$this->Equipos_model->insertarEquipos($datos);
+                        'dyndns'=> $this->input->post("dyn",true),
+                        'usuario'=> $this->input->post("usua",true),
+                        'contrasena'=> sha1($this->input->post('pas',true))   
+                        );
+                    $guardar=$this->Equipos_model->editEquipos($datos,$id);
                     if($guardar)
                     {
-                        $this->session->set_flashdata('ControllerMessage', 'Se ha agragado el ususario exitosamente');
+                        $this->session->set_flashdata('ControllerMessage', 'Se ha editado el ususario exitosamente');
                         redirect(base_url().'warriors/index', 301);
                     }
                     else
                     {
                         $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
-                        redirect(base_url().'warriors/new',  301);
+                        redirect(base_url().'warriors/edit/'.$id,  301);
                     }
                 }
             }
-
-        $this->layout->view('new');
-    }
-
-    public function show($id=null)
-    {
-        $datos = $this->Equipos_model->showEquipo($id);
-        $this->layout->view('show',compact("datos"));
-    }
-
-    public function edit($id=null)
-    {
-        if($this->input->post())
-        {
-            if($this->form_validation->run("warriors/nuevo") == false)
-            { 
-                $datos=array
-                (
-                    'dyndns'=> $this->input->post("dyn",true),
-                    'usuario'=> $this->input->post("usua",true),
-                    'contrasena'=> sha1($this->input->post('pas',true))   
-                    );
-                $guardar=$this->Equipos_model->editEquipos($datos,$id);
-                if($guardar)
-                {
-                    $this->session->set_flashdata('ControllerMessage', 'Se ha editado el ususario exitosamente');
-                    redirect(base_url().'warriors/index', 301);
-                }
-                else
-                {
-                    $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
-                    redirect(base_url().'warriors/edit/'.$id,  301);
-                }
-            }
+                    $datos=$this->Equipos_model->getEditEquipos($id);
+                    if(sizeof($datos) == 0)
+                    {
+                        show_404();
+                    } 
+                    $this->layout->view('edit',compact("datos"));
         }
-                $datos=$this->Equipos_model->getEditEquipos($id);
-                if(sizeof($datos) == 0)
-                {
-                    show_404();
-                } 
-                $this->layout->view('edit',compact("datos"));
+        else
+        {
+            $this->load->helper(array('form'));
+            $this->load->view('login/login_view');
+        }
     }
 
     public function iframe($id=null)
     {
-        $datos = $this->Equipos_model->iframeEquipo($id);
-        $pass =base64_decode($datos->contrasena);
-        $this->layout->view('iframe',compact("datos","pass"));
+        if($this->session->userdata('logged_in'))
+        {
+            $datos = $this->Equipos_model->iframeEquipo($id);
+            $pass =base64_decode($datos->contrasena);
+            $this->layout->view('iframe',compact("datos","pass"));
+        }
+        else
+        {
+            $this->load->helper(array('form'));
+            $this->load->view('login/login_view');
+        }
     }
 
 
     public function delete($id=null)
     {
-        $guardar=$this->Equipos_model->eliminar($id);
-        if($guardar)
+        if($this->session->userdata('logged_in'))
         {
-            $this->session->set_flashdata('ControllerMessage', 'Se ha eliminado el ususario exitosamente');
-            redirect(base_url().'usuario/index', 301);
+            $guardar=$this->Equipos_model->eliminar($id);
+            if($guardar)
+            {
+                $this->session->set_flashdata('ControllerMessage', 'Se ha eliminado el ususario exitosamente');
+                redirect(base_url().'usuario/index', 301);
+            }
+            else
+            {
+                $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
+                redirect(base_url().'usuario/index',  301);
+            }
         }
         else
         {
-            $this->session->set_flashdata('ControllerMessage', 'Se ha producido un error. Inténtelo de nuevo.');
-            redirect(base_url().'usuario/index',  301);
+            $this->load->helper(array('form'));
+            $this->load->view('login/login_view');
         }
     }
 
