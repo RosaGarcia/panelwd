@@ -3,24 +3,23 @@
 <section class="panel">
 	<div class="panel-body">
 		<div class="top-stats-panel">
-			<body>
-				<h1>Dashboard</h1>				
-				<?php 
+			<h1>Usuarios</h1>				
+			<?php 
 				if ( $this->session->flashdata('ControllerMessage') != '' ) 
-				    {
-				?>
-				<p style="color: red;"><?php echo $this->session->flashdata('ControllerMessage'); ?></p>
-				<?php 
+				{
+			?>
+					<h3><p class="red"><?php echo $this->session->flashdata('ControllerMessage'); ?></p></h3>
+			<?php 
 				} 
-				?>
+			?>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<section class="panel">
 						    <header class="panel-heading">
-						     	<h4>Información Usuarios</h4>	
+						     	<a class="btn btn-round btn-success" href="<?php echo base_url() ?>usuario/nuevo">Nuevo</a>	
 						    </header>
 						    <div class="panel-body">
-							    <table class="table table-hover general-table">
+							    <table class="table table-hover general-table table-bordered">
 									<thead>
 										<tr>
 											<th>id</th>
@@ -54,7 +53,7 @@
 						</section>
 					</div>
 				</div>
-			</body>
+
 		</div>
 	</div>
 </section>				
