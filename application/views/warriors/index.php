@@ -102,7 +102,7 @@
 		setInterval(function peticion(){
 			var servidor = <?php echo json_encode($datos);?>;
 			j = 0;
-			for(var i = 0 ; i<=servidor.length; i ++){
+			for(var i = 0 ; i<servidor.length; i ++){
 				$.getJSON("http://"+ servidor[i]['dyndns'] +"/prueba.php?jsoncallback=?").done(function(datos){
 			        	$('#cpu'+servidor[j]['id']).data('easyPieChart').update(datos.cpu);
 			        	$('#tamCpu'+servidor[j]['id']).html(datos.cpu)
